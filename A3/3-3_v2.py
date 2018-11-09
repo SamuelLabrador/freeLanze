@@ -22,6 +22,7 @@ for i in range(sz): #start from left most, move to right column
 
 			Table[j, i] = val
 
+
 print('looking for {}'.format(T))
 print(A)
 print(Table) 

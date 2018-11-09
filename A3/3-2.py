@@ -1,7 +1,7 @@
 import numpy as np
 
-string1 = "fire"
-string2 = "icef"
+string1 = "152"
+string2 = "1523564"
 
 #add space for table padding
 string1 = " " + string1
@@ -48,15 +48,8 @@ for i in range(1, sz1):	#row
 # print('Replacements till equal: {}'.format())
 
 val = Table[sz1 - 1, sz2 - 1]
-sz1 =  sz1 - val - 1
-sz2 = sz2 - val - 1
 
-if sz1 > sz2:
-	diff = sz1
-else:
-	diff = sz2
-
-print('operations to make them equal: {}'.format(diff))
+print('operations to make them equal: {}'.format(sz2 - val - 1))
 print(out)
 print(string1[1:])
 print(string2[1:])
