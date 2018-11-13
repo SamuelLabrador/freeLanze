@@ -1,19 +1,34 @@
 import numpy as np
 
+#sum we are trying to find
 target = 6
-targetCount = 0
 
+#dice parameters
 diceSize = 6
-Dice = np.array(range(1, diceSize + 1))
-diceCount = 3
+#number of dice being rolled
+diceCount = 6
+
+#initialize the table
+Table = np.zeros((diceCount + 1, target + 1))
+
+#fill the first row with one
+i = 1
+while i <= target and i <= diceSize:
+	Table[1][i] = 1
+	i += 1
 
 
-Table = np.zeros((diceSize + 1, diceSize + 1))
+for i in range(2, diceCount + 1): #iterate through each of the dice
+	for j in range(target + 1): #iterate though the rows
+		for k in range(1, j): #iterate though the columns
 
-for i in range(0, diceCount):
-	for j in range(1, diceSize + 1):
-		for k in range(1, diceSize + 1):
-			targetCount = 0
-	print(Table)
+			#if the col > dice, exit. we dont need to go any further
+			if k > diceSize:
+				break
 
-print(targetCount)
+			#add the previous row and column
+			Table[i][j] += Table[i - 1][j - k]
+
+print(Table)
+#solution in the bottom right
+print(Table[diceCount][target])
